@@ -7,10 +7,12 @@ Originally developed as a course project in quantitative text analysis.
 ## Data
 
 - **Source:** the MSZMP minutes collection of the Hungarian National Archives' online databases ([adatbazisokonline.mnl.gov.hu](https://adatbazisokonline.mnl.gov.hu)), Central Committee sessions.
-- **Size:** 190 digitised PDF documents, roughly 87 million characters of raw text.
+- **Size:** 190 digitised PDF documents, roughly 87 million characters of raw text; the cleaned corpus keeps 1,884 speeches of 2,000–20,000 characters.
 - **Unit of analysis:** one speech (one speaker turn), with speaker name, session date, agenda topic and era.
 
-The PDFs and the derived corpora are not included in this repository. Running `01_scraping.R` and `02_assembly.R` downloads the documents and rebuilds the corpus.
+The cleaned speech-level corpus (`cleandata.csv`) is included, so `04_analysis.R` can be run directly. The PDFs and the raw corpus are not included; running `01_scraping.R` and `02_assembly.R` downloads the documents and rebuilds them.
+
+Note: the included `cleandata.csv` was produced with an earlier version of `03_cleaning.R`, in which the lemmatised tokens were not written back to the text. Rerunning the current script produces a lemmatised version.
 
 ## Pipeline
 
@@ -29,6 +31,20 @@ The PDFs and the derived corpora are not included in this repository. Running `0
 4. **Kádár's rhetoric over time.** Yearly net sentiment of János Kádár's speeches (Poltext dictionary from `HunMineR`), with structural breaks estimated by `strucchange::breakpoints`.
 
 Eras used throughout: 1956–1962, 1963–1968, 1969–1978, 1979–1989.
+
+### Figures
+
+**Political positions and clusters of speakers (1979–1989)**
+
+![Political positions and clusters of speakers](Political_Positions_and_Clusters_of_Speakers.png)
+
+**Factional share of speaking time in the Central Committee**
+
+![Central Committee faction power dynamics](Central_Committee_Faction_Power_Dynamics.png)
+
+**Net sentiment of Kádár's speeches, with estimated structural breaks**
+
+![Kádár speech sentiment analysis](K%C3%A1d%C3%A1r_Speech_Sentiment_Analysis.png)
 
 ## Requirements
 
