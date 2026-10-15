@@ -1,0 +1,6 @@
+pdfs/
+*.csv
+*.udpipe
+.Rhistory
+.RData
+.Rproj.user/
